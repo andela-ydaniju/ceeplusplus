@@ -1,6 +1,6 @@
 #include <iostream>
 
-int fib(int num);
+int fib(int num, int a = 0, int b = 1);
 
 int main(int argc, char const *argv[]) {
   std::cout << fib(67) << std::endl;
@@ -10,21 +10,18 @@ int main(int argc, char const *argv[]) {
   std::cout << fib(1000) << std::endl;
   std::cout << fib(450) << std::endl;
 
-
   return 0;
 }
 
-int fib(int num) {
-  int a = 0;
-  int b = 1;
+int fib(int num, int a, int b) {
+  int tmp = a;
 
-  while (b < num) {
-    int c = a;
-    int d = b;
+  a = b;
+  b = tmp + b;
 
-    a = b;
-    b = c + d;
+  if (b > num) {
+    return a;
   }
 
-  return a;
+  return fib(num, a, b);
 }
