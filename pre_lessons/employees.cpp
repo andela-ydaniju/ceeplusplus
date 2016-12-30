@@ -18,7 +18,6 @@ class Employee {
     string compareLevel(Employee& emp);
     static int totalEmployees;
 
-
   private:
     string name;
     int number;
